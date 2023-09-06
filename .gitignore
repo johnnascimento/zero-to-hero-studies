@@ -130,5 +130,7 @@ dist
 .pnp.*
 
 # Submodules
+build-apps-with-lwc
+troubleshoot-lwc/troubleshoot-lwc
 ../build-apps-with-lwc
 ../troubleshoot-lwc/troubleshoot-lwc
