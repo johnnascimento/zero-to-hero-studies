@@ -1,3 +1,15 @@
 <template>
-    <div>{fullName}</div>
+    <!-- <div>{fullName}</div> -->
+
+    <div></div>
+
+    <lightning-card  title="Two way data binding">
+        <div class="slds-m-around_medium">
+            <p class="slds-p-vertical_small">
+                {fullName} is a course of {title}
+            </p>
+
+            <lightning-input type="text" label="Enter course name" onkeyup={changeHandler}></lightning-input>
+        </div>
+    </lightning-card>
 </template>
