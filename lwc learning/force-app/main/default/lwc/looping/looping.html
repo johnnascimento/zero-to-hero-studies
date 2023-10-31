@@ -1,0 +1,51 @@
+<template>
+    <lightning-card title="for:each loop">
+        <div class="slds-var-m-around_medium">
+            <ul class="slds-has-dividers_around-space">
+                <template for:each={carList} for:item="car" for:index="idx">
+                    <li class="slds-item" key={car}>
+                        {car}
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="for:each loop with Objects">
+        <div class="slds-var-m-around_medium">
+            <ul class="slds-has-dividers_around-space">
+                <template for:each={ceoList} for:item="ceoItem" for:index="idx">
+                    <li class="slds-item" key={ceoItem.id}>
+                        <p>{ceoItem.id}</p>
+                        <p>{ceoItem.company}</p>
+                        <p>{ceoItem.name}</p>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="iterator loop">
+        <div class="slds-var-m-around_medium">
+            <ul class="slds-has-dividers_around-space">
+                <template iterator:ceo={ceoList}>
+                    <h3 slot="First Element" class="slds-box slds-theme_shade slds-p-horizontal_small" lwc:if={ceo.first} key={ceo.value.id}>
+                        <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+                        First Element
+                    </h3>
+
+                    <li class="slds-item" key={ceo.value.id}>
+                        <p>{ceo.value.id}</p>
+                        <p>{ceo.value.company}</p>
+                        <p>{ceo.value.name}</p>
+                    </li>
+
+                    <h3 slot="Last Element" class="slds-box slds-theme_shade slds-p-horizontal_small" lwc:if={ceo.last} key={ceo.value.id}>
+                        <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+                        Last Element
+                    </h3>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+</template>

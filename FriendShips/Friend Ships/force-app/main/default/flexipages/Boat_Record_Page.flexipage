@@ -108,7 +108,7 @@
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Boat Record Page</masterLabel>
+    <masterLabel>Enter the property you want to compare by</masterLabel>
     <sobjectType>Boat__c</sobjectType>
     <template>
         <name>flexipage:recordHomeTemplateDesktop</name>

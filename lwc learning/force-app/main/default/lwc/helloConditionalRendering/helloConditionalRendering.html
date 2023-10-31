@@ -1,0 +1,55 @@
+<template>
+    <lightning-card title="Conditional Rendering Checkbox">
+        <div class="slds-var-m-around_medium">
+            <lightning-input
+                type="checkbox"
+                label="Show details"
+                onchange={handleChange}></lightning-input>
+
+            <template lwc:if={isVisible}>
+                <div class="slds-m-vertical_medium">
+                    Welcome to Zero to Hero Series - If
+                </div>
+            </template>
+            <template lwc:elseif={isInvisible}>
+                <div class="slds-m-vertical_medium">
+                    Welcome to Zero to Hero Series - Else IF
+                </div>
+            </template>
+            <template lwc:else>
+                <div class="slds-m-vertical_medium">
+                    Welcome to Zero to Hero Series - Else
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="Conditional Rendering Button">
+        <div class="slds-var-m-around_medium">
+            <lightning-button variant="brand" label="Show Details" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+
+            <template lwc:if={isTrue}>
+                <div class="slds-m-vertical_medium">
+                    Welcome to Zero to Hero Series
+                </div>
+            </template>
+            <template lwc:else>
+                <div class="slds-m-vertical_medium">
+                    You can't see the data now!
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="Conditional Rendering Input">
+        <div class="slds-var-m-around_medium">
+            <lightning-input type="text" label="Type hellow to see the data" onkeyup={changeHandler}></lightning-input>
+
+            <template lwc:if={helloMethod}>
+                <div class="slds-m-vertical_medium">
+                    Hurray! You have typed correctly
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

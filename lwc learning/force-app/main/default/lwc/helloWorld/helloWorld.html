@@ -3,6 +3,7 @@
 
     <div></div>
 
+    <!-- Two way data bindings -->
     <lightning-card  title="Two way data binding">
         <div class="slds-m-around_medium">
             <p class="slds-p-vertical_small">
@@ -10,6 +11,25 @@
             </p>
 
             <lightning-input type="text" label="Enter course name" onkeyup={changeHandler}></lightning-input>
+        </div>
+    </lightning-card>
+
+    <!-- @track properties -->
+    <lightning-card  title="Two way data binding">
+        <div class="slds-m-around_medium">
+            <p class="slds-p-vertical_small">
+                {address.city} is my City
+            </p>
+
+            <lightning-input type="text" label="Enter a city name" onkeyup={trackHandler}></lightning-input>
+        </div>
+    </lightning-card>
+
+    <lightning-card  title="Getter demo">
+        <div class="slds-m-around_medium">
+            <div>First username is {firstUser}</div>
+            <div>Second username is {secondUserUpperCase}</div>
+            <div>Multiplication of {num1} and {num2} is equal to {multiply}</div>
         </div>
     </lightning-card>
 </template>

@@ -12,18 +12,24 @@ export default class BoatSearchForm extends LightningElement {
     searchOptions;
 
     // Wire a custom Apex method
-    @wire(getBoatTypes, {boatType: '$selectedBoatTypeId'})
+    @wire(getBoatTypes)
     boatTypes({ error, data }) {
         console.log('boatTypes data', data);
+        console.log('boatTypes this.searchOptions', this.searchOptions);
 
         if (data) {
+            console.log('searchOptions - IF data', data);
+
             this.searchOptions = data.map(type => {
                 console.log('searchOptions - type', type);
 
                 // TODO: complete the logic
-                return { label: type.name, value: type.id }
+                return { label: type.Name, value: type.Id }
             });
+
             this.searchOptions.unshift({ label: 'All Types', value: '' });
+
+            console.log('this.searchOptions - AFTER', this.searchOptions);
         } else if (error) {
             console.log('searchOptions - error', error);
 
@@ -35,12 +41,14 @@ export default class BoatSearchForm extends LightningElement {
     // Fires event that the search option has changed.
     // passes boatTypeId (value of this.selectedBoatTypeId) in the detail
     handleSearchOptionChange(event) {
-        console.log('handleSearchOptionChange - event', event);
-        console.log('handleSearchOptionChange - this.selectedBoatTypeId', this.selectedBoatTypeId);
+        this.selectedBoatTypeId = event.detail.value;
+
         // Create the const searchEvent
         // searchEvent must be the new custom event search
         const searchEvent = new CustomEvent('search', {
-            detail: this.selectedBoatTypeId.boatTypeId
+            detail: { 
+                boatTypeId: this.selectedBoatTypeId
+            }
         });
         this.dispatchEvent(searchEvent);
     }
