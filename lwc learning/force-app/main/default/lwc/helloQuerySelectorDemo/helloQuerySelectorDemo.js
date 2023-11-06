@@ -22,5 +22,9 @@ export default class HelloQuerySelectorDemo extends LightningElement {
 
             console.log('item', item.innerText);
         }));
+
+        // lwc:dom manual approach
+        const childElem = this.template.querySelector('.child');
+        childElem.innerHTML = '<p>Im a child element</p>';
     }
 }

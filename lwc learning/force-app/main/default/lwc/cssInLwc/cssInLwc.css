@@ -1,0 +1,16 @@
+p {
+    color: green;
+    font-size: 15px;
+}
+
+.user {
+    color: green;
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid crimson;
+    padding: 5px;
+}
+
+.user:hover {
+    background-color: lightgrey;
+}
